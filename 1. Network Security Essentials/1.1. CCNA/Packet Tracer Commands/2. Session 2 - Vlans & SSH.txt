@@ -1,0 +1,85 @@
+Enable Mode:
+--------------------
+1- show mac address-table [dynamic]
+2- show mac address-table dynamic [address 008d:4882:ff80:3b71]
+3- show mac address-table dynamic [interface fastEthernet 0/1]
+4- show mac address-table dynamic [vlan 1]
+5- show mac address-table aging-time
+6- show mac address-table count
+
+7- show interfaces status 
+8- show interfaces fastEthernet 0/1
+9- show interfaces f0/1 counters
+10- show mac address-table 
+
+11- show [ip] ssh
+12- show ip default-gateway
+13- show history
+
+14- no ip domain-lookup (CTRL + SHIFT + 6: Stop domain lookup)
+
+15- show running-config interface f0/2
+
+16= show vlan
+
+Global Configuration (Execution) Mode:
+---------------------------------------------
+1- username Michael secret Luka
+2- login local
+3- username Michael privilege <0-15> (0:Highest - 15:Lowest)
+4- ip default-gateway 192.168.1.1
+
+5- interface range FastEthernet 0/11 - 20
+
+6- vlan #Number --> Enter vlan config mode
+
+
+
+Forth: Specific Configuration Mode:
+-----------------------------------
+a) SSH Configuration:
+------------------------------ 
+1- Give IP Address to the Switch
+	interface vlan 1
+	ip address 192.168.1.10 255.255.255.0
+	no shutdown
+2- Enable SSH in line VTY
+	line vty 0 4
+	transport input ssh
+	login local
+3- Create Local Username & Password
+	username Michael secret luka
+4- Enable Secret
+	enable secret luka123
+5- Enable Encryption RSA
+	hostname SW2
+	ip domain-name luka.com
+	crypto key generate rsa (Combines hostname & domain-name)
+	Key Length: [360 - 4096] --> Default: 512	Mostly Used: 1024
+
+
+
+b) Interface Configuration:
+---------------------------
+1- duplex full
+2- description "Server 1 connects here"
+3- shutdown
+
+4- no speed / no duplex / no description / no shutdown
+
+5- switchport nonegotiate
+6- switchport mode access
+7- switchport access vlan 10 (# of Vlan to assign the interface to)
+8- switchport mode trunk
+9- switchport trunk allowed vlan 10,20,...
+10- switchport trunk native vlan 90 --> Cretae Native vlan between switches (G0/1)
+11- switchport mode dynamic desirable
+
+c) Vlan Configuration:
+----------------------
+1- name Michael
+
+d) VTY Configuration:
+---------------------
+1- transport input ssh
+2- login local

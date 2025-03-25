@@ -1,0 +1,24 @@
+Enable Mode:
+--------------------
+1- show spanning-tree
+
+2- show etherchannel 1 port-channel-group
+3- show etherchannel load-balance
+
+Global Configuration (Execution) Mode:
+---------------------------------------------
+1- spanning-tree mode rapid-pvst
+2- spanning-tree vlan 1 priority <0-61440> (Increments by: 4096)
+3- spanning-tree vlan 2 root primary --> Set Root Switch for a specific Vlan
+4- spanning-tree portfast
+5- spanning-tree bpduguard enable
+
+6- port-channel load-balance <src-mac - dst-mac - ...>
+
+
+Specific Configuration Mode:
+-----------------------------------
+a) Interface Configuration:
+---------------------------
+1- channel-group 1 mode desirable
+

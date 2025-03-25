@@ -1,0 +1,101 @@
+Enable Mode:
+--------------------
+1- show ip interface g0/0 (To View the Helper Address)
+2- show dhcp lease
+3- show ip default-gateway
+
+4- show ip dhcp snooping
+5- show dhcp binding-table
+6- show ip dhcp snooping binding
+
+7- show ip arp inspection
+8- show ip arp inspection statistics
+
+9- show logging
+
+10- clock set 20:52:49 21 October 2025
+11- show clock
+
+12- show ntp status
+13- show ntp associations
+
+14- show cdp [neigbors] [detail]
+15- show cdp interface g0/1
+
+16 show lldp [neigbors] [traffic]
+17- shwo lldp entry R1
+18- show lldp interface g0/1
+
+Global Configuration (Execution) Mode:
+---------------------------------------
+1- ip dhcp snooping limit rate 3 --> # DHCP requests can be sent per second
+2- ip helper-address 172.16.2.10 <DHCP Server IP>
+3- ip dhcp pool Net10 <Pool Name>
+4- no ip dhcp pool Net10
+5- ip dhcp excluded-address 192.168.1.1 192.168.1.10 --> Exclude IPs (To be Used Statically)
+
+6- ip dhcp snooping
+7- ip dhcp snooping vlan 1
+8- (Optional) no ip dhcp snooping information option --> Disable fake DHCP Server to offer IPs
+
+9- ip arp inspection vlan 1
+10- ip arp inspection vlaidate src-mac <Validate against Binding Table Source Mac>
+
+11- [no] service timestamp
+12- service timestamp debug datetime msec <Configure Logs Date & Time>
+12- [no] service sequence-numbers
+
+13- clock timezone EST -5
+14- clock summer-time EDT recurring
+
+15- ntp server 192.168.1.10 <NTP Server Address>
+16- ntp update-calender
+17- ntp master 2 (NTP on a Router)
+
+18- [no] cdp run
+19- [no] lldp run
+
+Specific Configuration Mode:
+-----------------------------
+a) DHCP Configuration:
+----------------------
+1- network 192.168.10.0 255.255.255.0 <Add Network>
+2- default-router 192.168.1.1 <Default Gateway>
+3- dns-server 4.2.2.2 <Add DNS Server>
+
+
+
+b) Interface Configuration:
+---------------------------
+1- ip address dhcp --> Assign IP address to Interface
+2- ip dhcp snooping trust
+3- ip arp inspection trust
+
+4- [no] lldp transmit
+5- [no] lldp receive
+
+c) Syslog Configuration:
+------------------------
+1- logging console 7
+2- logging monitor debug
+3- logging buffered [4] <Buffer Size>
+4- logging host 172.16.3.9
+5- logging trap warning / 1 <Severity Level>
+
+
+
+-) Windows Configuration:
+-------------------------
+1- ipconfig
+2- ipconfig /all
+3- netstat -rn
+
+-) Linux Configuration:
+-----------------------
+1- ifconfig
+2- ifconfig wlan0
+3- ip address
+4- networksetup -getinfo Ethernet
+5- networksetup -getdnsserver Ethernet
+6- netstat -rn
+7- ip route

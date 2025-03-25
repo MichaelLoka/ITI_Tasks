@@ -1,0 +1,42 @@
+Enable Mode:
+--------------------
+1- show standby
+2- show flash:
+3- show file systems
+
+4- copy flash: tftp: 
+Source filename []? --> luka.bin
+Address or name of remote host []? --> 192.168.1.50 <FTP Server IP>
+Destination filename [luka.bin]? --> Michael.bin <Saved Name>
+
+5- copy running-config ftp: (After creating a Username & Password as the FTP)
+
+
+Global Configuration (Execution) Mode:
+---------------------------------------
+1- 
+
+
+Specific Configuration Mode:
+-----------------------------
+a) HSRP Configuration:
+----------------------
+1- standby 10 <Group #> ip 192.168.1.1 <Shared>
+2- standby 10 preempt
+
+
+b) FTP Configuration:
+---------------------
+1- ip ftp username cisco
+2- ip ftp password cisco
+
+
+c) Interface Configuration:
+---------------------------
+1- 
+
+
+
+Windows Commands:
+-----------------
+1- tracert 192.168.20.20

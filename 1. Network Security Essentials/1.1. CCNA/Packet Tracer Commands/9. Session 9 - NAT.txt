@@ -1,0 +1,27 @@
+Enable Mode:
+--------------------
+1- show ip nat translations
+2- show ip nat statistics
+3- debug ip nat
+
+Global Configuration (Execution) Mode:
+---------------------------------------
+1- access-list 1 permit 10.1.1.1 (Create pool of private IPs using ACL)
+
+
+Specific Configuration Mode:
+-----------------------------
+a) NAT Configuration:
+---------------------
+1- ip nat inside source static 10.1.1.10 50.50.50.1 (Static NAT)
+
+2- ip nat pool P1 50.50.50.1 50.50.50.2 netmask 255.255.255.252 (Dynamic NAT)
+3- ip nat inside source list 1 pool P1 (list 1 is a ACL containing Private IPs)
+
+4- ip nat pool P1 50.50.50.1 50.50.50.1 netmask 255.255.255.252 (PAT)
+5- ip nat inside source list 1 pool P1 overload (PAT Specified)
+6- ip nat inside source list 1 interface S0/0/0 overload (Used interface for public IPs instead of Pool)
+
+b) Interface Configuration:
+---------------------------
+1- [no] ip nat inside / outside (According to the path of the Interface)

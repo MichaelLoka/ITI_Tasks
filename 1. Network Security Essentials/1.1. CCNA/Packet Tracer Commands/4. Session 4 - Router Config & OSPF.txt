@@ -1,0 +1,23 @@
+Enable Mode:
+--------------------
+1- show ip route
+
+Global Configuration (Execution) Mode:
+---------------------------------------------
+1- interface G0/1.10 (IEEE 802.1Q  should be enabled)
+
+2- ip routing (On Layer 3 Switch)
+
+3- ip route 192.168.3.0 255.255.255.0 G0/2 --> Make Router Identify new Network By out-going interface
+4- ip route 192.168.3.0 255.255.255.0 192.168.5.1 --> Make Router Identify new Network By Router's (Next Hop) IP
+5- ip route 0.0.0.0 0.0.0.0 192.168.5.1 --> Default routing for a new network with next hop IP
+
+
+Specific Configuration Mode:
+-----------------------------------
+a) Interface Configuration:
+---------------------------
+1- encapsulation dot1Q 10
+
+2- no switchport (on Layer 3 Switch) --> Allows Interfaces to take IPs
+

@@ -1,0 +1,42 @@
+Enable Mode:
+--------------------
+1- show ip access-lists
+2- show access-lists
+
+Global Configuration (Execution) Mode:
+---------------------------------------------
+1- ip access list standard 10 / SACL
+2- ip access-list extended 10 / EACL
+
+
+Specific Configuration Mode:
+-----------------------------------
+a) DNS Configuration:
+----------------------
+1- Turn ON DNS Server
+2- Add an entry IP:Domain
+
+b) ACL Configuration (Remove: access-list #):
+---------------------------------------------
+1- access-list 10 / standard SACL permit 10.1.1.1 (Configured by number or name)
+2- access-list 10 deny 10.1.1.0 0.0.0.255
+3- access-list 10 permit 10.0.0.0 0.255.255.255
+4- no access-list 10
+
+Note: Rules are created and incremented according to ACL number (10. - 20. - 30. - ...)
+
+5- 5 permit 10.1.1.10 (Insert A Rule Prior to the others)
+
+6- access-list 100 permit icmp host 10.1.1.1 host 192.168.2.10
+7- access-list 100 permit tcp host 10.1.1.1 hsot 192.168.2.10 eq 80
+8- access-list 100 permit icmp 10.3.3.0 0.0.0.255 host 192.168.2.10 (A whole Network)
+
+
+c) Interface Configuration:
+---------------------------
+1- [no] ip access-group 10 in 
+2- [no] ip access-group 10 out
+
+CMD Commands:
+-------------
+1- nslookup www.cisco.com --> Fetch IP Address

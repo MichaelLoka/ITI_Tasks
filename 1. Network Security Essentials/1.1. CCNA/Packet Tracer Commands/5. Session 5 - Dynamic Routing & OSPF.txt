@@ -1,0 +1,33 @@
+Enable Mode:
+--------------------
+1- show ip ospf interface [brief] [<Type Number>]
+2- show ip ospf neighbor [<Type Number>]
+3- show ip ospf database
+4- show ip ospf rib
+5- show ip route ospf
+
+Global Configuration (Execution) Mode:
+---------------------------------------------
+1- router ospf 1 <process id>
+2- router rip
+
+
+Specific Configuration Mode:
+-----------------------------------
+a) OSPF Configuration:
+----------------------
+1- (Optional) router-id 5.5.5.5 <id-value>
+2- network 10.0.0.0 <IP> 0.255.255.255 <Wildcard Mask> area 0 <Area-id> 
+	(Wildcard = 255.255.255.255 - Subnet Mask)
+	(Wildcard = 0.0.0.0 = Match Exactly --> 0: Exact Match | 255: Changable)
+3- (Optional) passive-interface G/0/0 <type number>
+
+b) RIP Configuration:
+---------------------
+1- version 2
+2- no auto-summary
+3- network 192.168.1.0 (Add Networks)
+4- passive-interface g0/0 (Don't send out any routing information)
+5- default-information originate
+
+

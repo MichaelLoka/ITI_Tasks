@@ -1,0 +1,60 @@
+First: User Mode:
+-----------------
+1- enable
+
+
+
+Second: Enable Mode:
+--------------------
+1- reload
+2- show running-config --> RAM (Clears with Restart)
+3- show startup-config --> ROM (Always Saved)
+4- copy running-config startup-config
+5- exit --> returns to previous mode
+
+CTRL + z --> returns to User Mode
+
+6- configure terminal
+7- show mac address-table dynamic
+
+
+Third: Global Configuration (Execution) Mode:
+---------------------------------------------
+1- hostname Michael
+2- line console 0 --> a)
+3- interface FastEthernet 0/1
+4- enable password luka123 --> Password for enable mode
+5- enable secret notluka123 --> Encrypted Password for enable mode
+6- no password
+7- no enable password
+8- do show running-config --> do allows to run command from previous Mode 
+9- service password-encryption --> Encrypt all Passwords
+
+IMP: 10- interface vlan 1 --> Gives IP address to Switch
+
+11- line vty 0 4 / line vty 5 15 --> Number of sessions
+12- enable line vty password luka123
+13- banner motd "This is a secure system. Authorized Access Only!"
+
+
+
+
+
+
+
+
+Forth: Specific Configuration Mode:
+-----------------------------------
+a) Line Console Configuration:
+------------------------------
+1- password luka --> Password for line console 0
+2- login --> Ask for password when logging in
+3- transport input telnet --> enable telnet (By Default Telnet)
+
+
+
+b) Interface Configuration:
+---------------------------
+1- speed 100
+2- ip address 192.168.1.1 255.255.255.0 --> Gives ip address to switch through vlan
+3- no shutdown
